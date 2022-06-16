@@ -76,3 +76,5 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 12. ```void exit(int status);```
 - 헤더 : ```stdlib.h```
 - 설명 : c프로그램 종료함수, return은 함수를 종료할 때 사용하고 exit는 프로세스를 종료할 때 사용하고 main함수에서 return은 프로세스를 종료함.
+
+waitpid, pipe 함수 정리하기.
