@@ -6,7 +6,7 @@
 /*   By: jaewoo <jaewoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:55:25 by jaewoo            #+#    #+#             */
-/*   Updated: 2022/06/20 10:43:45 by jaewoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 12:37:08 by jaewoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv, char **envp)
 			error();
 		if (pid1 == 0)
 			child_process(argv, envp, fd);
-		waitepid(pid1, NULL, 0);
+		waitpid(pid1, NULL, 0);
 		parent_process(argv, envp, fd);
 	}
 	else

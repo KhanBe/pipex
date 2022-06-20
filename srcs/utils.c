@@ -6,9 +6,11 @@
 /*   By: jaewoo <jaewoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 10:44:19 by jaewoo            #+#    #+#             */
-/*   Updated: 2022/06/20 11:15:10 by jaewoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 12:39:39 by jaewoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/pipex.h"
 
 void	error(void)
 {

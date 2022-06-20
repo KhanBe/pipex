@@ -6,7 +6,7 @@
 /*   By: jaewoo <jaewoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:54:50 by jaewoo            #+#    #+#             */
-/*   Updated: 2022/06/19 22:57:18 by jaewoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 12:49:36 by jaewoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ int		get_next_line(char **line);
 int		open_file(char *argv, int i);
 void	usage(void);
 
-
-endif
+#endif

@@ -6,7 +6,7 @@
 #    By: jaewoo <jaewoo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 16:50:46 by jaewoo            #+#    #+#              #
-#    Updated: 2022/05/25 17:24:46 by jaewoo           ###   ########.fr        #
+#    Updated: 2022/06/20 13:26:48 by jaewoo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,17 +31,17 @@ all : ${PIPE}
 
 bonus : ${PIPE_B}
 
-${NAME} : ${OBJS}
+${PIPE} : ${OBJS}
 	@make re -C ./libft
-	@$(CC) ${OBJS_B} -L libft -lft -o ${PIPE}
+	@$(CC) ${OBJS} -L libft -lft -o ${PIPE}
 
-${NAME_B} : ${OBJS_B}
+${PIPE_B} : ${OBJS_B}
 	@make re -C ./libft
 	@$(CC) ${OBJS_B} -L libft -lft -o ${PIPE_B}
 
 clean :
 	@make clean -C ./libft
-	@rm -f ${PIPE} ${OBJS_B}
+	@rm -f ${OBJS} ${OBJS_B}
 
 fclean : clean
 	@make fclean -C ./libft
