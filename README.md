@@ -7,7 +7,7 @@ Pipex 프로그램 작성
 ```file1```및```file2```는 파일이름   
 ```cmd1```및```cmd2```는 Shell 명령어   
 
-Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리해야 한다.
+Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리해야 한다.   
 ```$> < file1 cmd1 | cmd2 > file2```   
 
 ```$> ./pipex infile ``ls -l'' ``wc -l'' outfile``` 명령은   
@@ -78,10 +78,16 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 - 헤더 : ```stdlib.h```
 - 설명 : c프로그램 종료함수, return은 함수를 종료할 때 사용하고 exit는 프로세스를 종료할 때 사용하고 main함수에서 return은 프로세스를 종료함.
 
-waitpid, pipe 함수 정리하기.
-stdlib
-unistd
-stdio
-string
-fcntl
-sys/wait 헤더 알아보기
+#### pipe
+pipe함수는 단방향 통신이라 사용하지 않는 fd는 닫아줘야한다.   
+pipe wirter 쪽에서 close를 하면 EOF가 reader한테 넘어간다.   
+reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.   
+
+#### waitpid
+
+#### fcntl
+- 파일 처리 헤더
+
+#### sys/wait
+- 프로세스 관련 헤더
+- 프로세스 
