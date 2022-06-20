@@ -25,6 +25,7 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 - flags : 파일을 어떻게 열지 결정하는 플래그, 읽기전용 O_RDONLY, 쓰기전용 O_WRONLY, 읽기쓰기 O_RDWR
 - 반환 : 성공적으로 열면 파일 디스크립터 반환, 아니면 음수 반환
 - 파라미터 : 3번 째 파라미터가 있을 경우에는 O_CREAT로 인해 파일이 생성될 때 부여되는 파일 접근권한이 들어간다.
+ex) ```ata = open(argv[1], O_RDONLY, 0777);```.  
 
 2. ```ssize_t read(int fd, void *buf, size_t nbytes);```
 - fd : 파일 디스크립터
