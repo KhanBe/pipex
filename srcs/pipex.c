@@ -6,11 +6,37 @@
 /*   By: jaewoo <jaewoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:55:25 by jaewoo            #+#    #+#             */
-/*   Updated: 2022/06/16 23:34:28 by jaewoo           ###   ########.fr       */
+/*   Updated: 2022/06/20 10:43:45 by jaewoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+
+void	child_process(char **argv, char **envp, int *fd)
+{
+	int	data;
+
+	data = open(argv[1], O_RDONLY, 0777);
+	if (data == -1)
+		error();
+	dup2(fd[1], STDOUT_FILENO);
+	dup2(data, STDIN_FILENO);
+	close(fd[0]);
+	execute(argv[2], envp);
+}
+
+void	parent_process(char **argv, char **envp, int *fd)
+{
+	int	data;
+
+	data = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	if (data == -1)
+		error();
+	dup2(fd[0], STDIN_FILENO);
+	dup2(data, STDOUT_FILENO);
+	close(fd[1]);
+	execute(argv[3], envp);
+}
 
 int	main(int argc, char **argv, char **envp)
 {
