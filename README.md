@@ -24,6 +24,7 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 - pathname : 파일의 경로와 이름, (절대경로, 상대경로 모두 가능)
 - flags : 파일을 어떻게 열지 결정하는 플래그, 읽기전용 O_RDONLY, 쓰기전용 O_WRONLY, 읽기쓰기 O_RDWR
 - 반환 : 성공적으로 열면 파일 디스크립터 반환, 아니면 음수 반환
+- 파라미터 : 3번 째 파라미터가 있을 경우에는 O_CREAT로 인해 파일이 생성될 때 부여되는 파일 접근권한이 들어간다.
 
 2. ```ssize_t read(int fd, void *buf, size_t nbytes);```
 - fd : 파일 디스크립터
@@ -76,18 +77,35 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 
 12. ```void exit(int status);```
 - 헤더 : ```stdlib.h```
-- 설명 : c프로그램 종료함수, return은 함수를 종료할 때 사용하고 exit는 프로세스를 종료할 때 사용하고 main함수에서 return은 프로세스를 종료함.
+- 설명 : c프로그램 종료함수, return은 함수를 종료할 때 사용하고 exit는 프로세스를 종료할 때 사용하고 main함수에서 return은 프로세스를 종료함. 표준 라이브러리 헤더 중 <stdlib.h>에 EXIT_SUCCESS 와 EXIT_FAILURE라는 매크로 상수값이 정의 되어 있다.   
+
+```
+#define EXIT_SUCCESS    0
+#define EXIT_FAILURE    1
+```
+
+ 
+
+/* Definition of the argument values for the exit() function */
+
+#define EXIT_SUCCESS    0
+#define EXIT_FAILURE       1
 
 #### pipe
+- ```int pipe(filedes[2]);```
+- filedes : 0인덱스는 읽기, 1은 쓰기
+- 반환 : 성공시 0, 실패 -1
+- 프로세스간 통신하는 방법을 담을 함수
 pipe함수는 단방향 통신이라 사용하지 않는 fd는 닫아줘야한다.   
 pipe wirter 쪽에서 close를 하면 EOF가 reader한테 넘어간다.   
 reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.   
-
-#### waitpid
+- 참고 : https://velog.io/@hidaehyunlee/minishell-5.-%ED%8C%8C%EC%9D%B4%ED%94%84Pipe-%EC%B2%98%EB%A6%AC
 
 #### fcntl
 - 파일 처리 헤더
 
 #### sys/wait
 - 프로세스 관련 헤더
-- 프로세스 
+
+#### wait/waitpid
+
