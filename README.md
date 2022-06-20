@@ -84,13 +84,6 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 #define EXIT_FAILURE    1
 ```
 
- 
-
-/* Definition of the argument values for the exit() function */
-
-#define EXIT_SUCCESS    0
-#define EXIT_FAILURE       1
-
 #### pipe
 - ```int pipe(filedes[2]);```
 - filedes : 0인덱스는 읽기, 1은 쓰기
