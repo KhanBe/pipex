@@ -24,8 +24,9 @@ Pipex는 아래의 명령을 Shell에서 실행되는 것과 동일하게 처리
 - pathname : 파일의 경로와 이름, (절대경로, 상대경로 모두 가능)
 - flags : 파일을 어떻게 열지 결정하는 플래그, 읽기전용 O_RDONLY, 쓰기전용 O_WRONLY, 읽기쓰기 O_RDWR
 - 반환 : 성공적으로 열면 파일 디스크립터 반환, 아니면 음수 반환
-- 파라미터 : 3번 째 파라미터가 있을 경우에는 O_CREAT로 인해 파일이 생성될 때 부여되는 파일 접근권한이 들어간다.
-ex) ```ata = open(argv[1], O_RDONLY, 0777);```.  
+- 파라미터 : 3번 째 파라미터가 있을 경우에는 O_CREAT로 인해 파일이 생성될 때 부여되는 파일 접근권한이 들어간다.   
+ex) ```data = open(argv[1], O_RDONLY, 0777);```.  
+- O_TRUNC : O_WRONLY 또는 O_RDWR로 open시에 이미 존재하는 파일이면 파일의 내용을 삭제하여 파일의 크기를 0으로 만듭니다.
 
 2. ```ssize_t read(int fd, void *buf, size_t nbytes);```
 - fd : 파일 디스크립터
@@ -94,6 +95,14 @@ pipe함수는 단방향 통신이라 사용하지 않는 fd는 닫아줘야한�
 pipe wirter 쪽에서 close를 하면 EOF가 reader한테 넘어간다.   
 reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.   
 - 참고 : https://velog.io/@hidaehyunlee/minishell-5.-%ED%8C%8C%EC%9D%B4%ED%94%84Pipe-%EC%B2%98%EB%A6%AC
+
+
+#### access
+-```int access(const char *pathname, int mode);```
+- pathname : 파일경로
+- mode : R_OK : 읽기 권한 여부, W_OK : 쓰기 권한 여부, X_OK : 실행 권한 여부, F_OK : 파일존재여부, (R,W,X 는 파일존재여부 모두 포함)   
+- 헤더 : ```unistd.h```
+- 반환 : 성공시 0, 실패시 -1
 
 #### fcntl
 - 파일 처리 헤더
