@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_bonus.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewoo <jaewoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 12:11:16 by jaewoo            #+#    #+#             */
-/*   Updated: 2022/06/20 12:50:59 by jaewoo           ###   ########.fr       */
+/*   Created: 2021/11/17 23:46:02 by jaewoo            #+#    #+#             */
+/*   Updated: 2021/11/17 23:51:42 by jaewoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **envp)
+size_t	ft_strlen(const char *str)
 {
+	size_t	i;
+
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
 }
