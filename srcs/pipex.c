@@ -6,7 +6,7 @@
 /*   By: jaewoo <jaewoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:55:25 by jaewoo            #+#    #+#             */
-/*   Updated: 2022/06/20 12:37:08 by jaewoo           ###   ########.fr       */
+/*   Updated: 2022/06/21 17:10:50 by jaewoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,14 @@ int	main(int argc, char **argv, char **envp)
 {
 	pid_t	pid1;
 	int		fd[2];
+	int		infile;
+	int		outfile;
 
+	infile = open(argv[1], O_RDONLY, 0777);
+	outfile = open(argv[4], O_RDONLY | O_CREAT | O_TRUNC, 0777);
 	if (argc == 5)
 	{
-		if (pipe(fd) == -1)
+		if (pipe(fd) == -1 || infile == -1 || outfile == -1)
 			error();
 		pid1 = fork();
 		if (pid1 == -1)
