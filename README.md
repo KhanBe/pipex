@@ -51,7 +51,7 @@ ex) ```data = open(argv[1], O_RDONLY, 0777);```.
 - 헤더 : ```stdlib.h```
 
 7. ```int dup2(int oldfd, int newfd);```
-- 설명 : oldfd 디스크립터에서 newfd로 파일을 복제한다. newfd가 이미 열려있을 경우 close후 복제한다.
+- 설명 : oldfd 디스크립터에서 newfd로 파일을 복제한다. newfd가 이미 열려있을 경우 close후 복제한다. (엄밀히 말하면 newfd를 oldfd로 바꾼다)
 - 헤더 : ```unistd.h```
 - oldfd : 복사하려는 원본 파일 디스크립터
 - newfd : 복사되는 파일 디스크립터
