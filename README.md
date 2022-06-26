@@ -114,6 +114,10 @@ reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.
 - 부모 프로세스가 fork()함수로 인해 자식 프로세스를 생성했을 때, fork()함수가 리턴되는 순간부터 2개의 프로세스가 동작한다.
 - 부모 프로세스가 자식 프로세스의 종료상태를 얻기위해서는 wait()함수가 사용한다.
 
+#### wait / waitpid
+- wait는 자식 프로세스 어느하나라도 종료시 부모 프로세스가 대기상태에서 풀림
+- waitpid는 특정 자식 프로세스가 종료시 부모 프로세스가 대기상태에서 풀림
+- 
 #### wait
 - 헤더 : ```sys/wait.h```
 1. ```pid_t wait(int *statloc);```
@@ -126,5 +130,12 @@ reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.
 4. 자식 프로세스가 없다면 호출이 즉시 반환되며, 에러값을 반환 (-1)
 
 #### waitpid
+- ```pid_t waitpid(pid_t pid, int *statloc, int options)```
 - 헤더 : ```sys/wait.h```
+- 반환 : 성공시 pid, 오류시 -1, 그 외 0
+- pid : 특정 자식 프로세스
+- statloc : 자식 프로세스의 종료 상태 정보
+- options : 주로 WNOHANG 과 0 을 사용
+            - WNOHANG 상수 사용 시 자식프로세스 종료까지 부모프로세스가 block되지 않음
+            - 0 값 사용 시 자식프로세스 종료까지 부모프로세스가 block처리 된다. (즉 wait와 같은 처리방식)
 - 링크 : https://velog.io/@t1won/Unix
