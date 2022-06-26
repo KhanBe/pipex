@@ -136,6 +136,6 @@ reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.
 - pid : 특정 자식 프로세스
 - statloc : 자식 프로세스의 종료 상태 정보
 - options : 주로 WNOHANG 과 0 을 사용
-            - WNOHANG 상수 사용 시 자식프로세스 종료까지 부모프로세스가 block되지 않음
-            - 0 값 사용 시 자식프로세스 종료까지 부모프로세스가 block처리 된다. (즉 wait와 같은 처리방식)
+            - WNOHANG 상수 사용 시 자식프로세스 종료까지 부모프로세스가 block되지 않음   
+            - 0 값 사용 시 자식프로세스 종료까지 부모프로세스가 block처리 된다. (즉 wait와 같은 처리방식)   
 - 링크 : https://velog.io/@t1won/Unix
