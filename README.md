@@ -116,7 +116,7 @@ reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.
 
 #### wait
 - 헤더 : ```sys/wait.h```
-1. pid_t wait(int *statloc);```
+1. ```pid_t wait(int *statloc);```
 - 반환 : 성공시 프로세스id 반환, 실패시 -1 반환
 - statloc : 상태값을 담는다
 - 동작 :
@@ -127,3 +127,4 @@ reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.
 
 #### waitpid
 - 헤더 : ```sys/wait.h```
+- 링크 : https://velog.io/@t1won/Unix
