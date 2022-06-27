@@ -139,3 +139,6 @@ reader 쪽에서 close를 하면 writer 쪽으로 SIGPIPE 시그널이 간다.
             - WNOHANG 상수 사용 시 자식프로세스 종료까지 부모프로세스가 block되지 않음   
             - 0 값 사용 시 자식프로세스 종료까지 부모프로세스가 block처리 된다. (즉 wait와 같은 처리방식)   
 - 링크 : https://velog.io/@t1won/Unix
+
+#### exec 계열 함수
+- 링크 : https://velog.io/@kyj93790/Pipex-%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5-%ED%95%A8%EC%88%98-execve-fork-pipe-waitwaitpid
